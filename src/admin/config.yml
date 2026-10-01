@@ -6,9 +6,9 @@
 
 backend:
   name: github
-  repo: circulonorte/circulonorte          # ⚠️ organización/repositorio en GitHub
+  repo: CirculoNorte/circulonorte          # ⚠️ organización/repositorio en GitHub
   branch: main
-  base_url: https://sveltia-cms-auth.TU-SUBDOMINIO.workers.dev   # ⚠️ dirección de tu Worker en Cloudflare
+  base_url: https://sveltia-cms-auth.campusano-jorge.workers.dev   # ⚠️ dirección de tu Worker en Cloudflare
   commit_messages:
     create: "Nuevo en {{collection}}: {{slug}}"
     update: "Edición en {{collection}}: {{slug}}"
