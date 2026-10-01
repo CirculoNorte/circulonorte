@@ -1,5 +1,5 @@
 ---
-title: Estudiantes y trabajadores marchan contra recortes en educación — La Serena
+title: Estudiantes y trabajadores marchan contra recortes en educación
 date: 2026-10-01T18:07:00
 comuna: La Serena
 borrador: false
