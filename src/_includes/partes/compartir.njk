@@ -1,0 +1,8 @@
+{% set enlace = page.url | url_absoluta(site.url) %}
+<div class="compartir">
+<span>Compartir:</span>
+<a class="pildora" href="https://wa.me/?text={{ (title + ' ' + enlace) | urlencode }}" rel="noopener">WhatsApp</a>
+<a class="pildora" href="https://www.facebook.com/sharer/sharer.php?u={{ enlace | urlencode }}" rel="noopener">Facebook</a>
+<a class="pildora" href="https://x.com/intent/post?url={{ enlace | urlencode }}&amp;text={{ title | urlencode }}" rel="noopener">X</a>
+<a class="pildora" href="mailto:?subject={{ title | urlencode }}&amp;body={{ enlace | urlencode }}">Correo</a>
+</div>

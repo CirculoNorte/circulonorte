@@ -1,0 +1,99 @@
+{% from "partes/macros.njk" import logo, simbolo %}
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% set tituloPagina = (title + " — " + site.nombre) if (title and page.url != "/") else (site.nombre + " — " + site.lema) %}
+<title>{{ tituloPagina }}</title>
+<meta name="description" content="{{ bajada or site.descripcion }}">
+<link rel="canonical" href="{{ page.url | url_absoluta(site.url) }}">
+<meta property="og:site_name" content="{{ site.nombre }}">
+<meta property="og:title" content="{{ title or site.nombre }}">
+<meta property="og:description" content="{{ bajada or site.descripcion }}">
+<meta property="og:type" content="{{ 'article' if seccion else 'website' }}">
+<meta property="og:url" content="{{ page.url | url_absoluta(site.url) }}">
+{% if imagen %}<meta property="og:image" content="{{ imagen | url_absoluta(site.url) }}">{% endif %}
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/simbolo.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="{{ site.nombre }}" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="/assets/css/estilos.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<div class="barra">
+<div class="contenedor barra__fila">
+<span>Región de Coquimbo, Chile</span>
+<span class="barra__redes">
+{% if site.redes.instagram %}<a href="{{ site.redes.instagram }}" rel="noopener">Instagram</a>{% endif %}
+{% if site.redes.youtube %}<a href="{{ site.redes.youtube }}" rel="noopener">YouTube</a>{% endif %}
+{% if site.redes.spotify %}<a href="{{ site.redes.spotify }}" rel="noopener">Spotify</a>{% endif %}
+{% if site.redes.x %}<a href="{{ site.redes.x }}" rel="noopener">X</a>{% endif %}
+{% if site.redes.tiktok %}<a href="{{ site.redes.tiktok }}" rel="noopener">TikTok</a>{% endif %}
+</span>
+</div>
+</div>
+
+<header class="cabecera">
+<div class="contenedor cabecera__fila">
+<a href="/" class="cabecera__logo" aria-label="{{ site.nombre }}, ir a la portada">{{ logo() }}</a>
+<nav class="nav" aria-label="Secciones">
+{% for s in secciones %}<a href="{{ s.url }}"{% if page.url.startsWith(s.url) %} aria-current="page"{% endif %}>{{ s.nombre }}</a>{% endfor %}
+</nav>
+<div class="cabecera__acciones">
+<a href="/#suscribete" class="boton boton--oscuro solo-grande">Suscríbete</a>
+<details class="menu">
+<summary aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7 H20 M4 12 H20 M4 17 H20"/></svg></summary>
+<nav class="menu__panel" aria-label="Secciones">
+{% for s in secciones %}<a href="{{ s.url }}">{{ s.nombre }}</a>{% endfor %}
+<a href="/quienes-somos/">Quiénes somos</a>
+<a href="/#suscribete" class="boton boton--naranjo">Suscríbete</a>
+</nav>
+</details>
+</div>
+</div>
+</header>
+
+<main id="contenido">
+{{ content | safe }}
+</main>
+
+<footer class="pie">
+<div class="contenedor pie__grilla">
+<div class="pie__marca">
+{{ logo(true) }}
+<p>Un espacio para conversar, pensar y disputar sentidos desde el territorio.</p>
+</div>
+<div class="pie__col">
+<span class="pie__titulo">SECCIONES</span>
+{% for s in secciones %}<a href="{{ s.url }}">{{ s.nombre }}</a>{% endfor %}
+</div>
+<div class="pie__col">
+<span class="pie__titulo">EL MEDIO</span>
+<a href="/quienes-somos/">Quiénes somos</a>
+<a href="/autores/">Columnistas</a>
+<a href="/escribe-con-nosotros/">Escribe con nosotros</a>
+{% if site.correo %}<a href="mailto:{{ site.correo }}">Contacto</a>{% endif %}
+<a href="/feed.xml">RSS</a>
+</div>
+<div class="pie__col">
+<span class="pie__titulo">SÍGUENOS</span>
+{% if not (site.redes.instagram or site.redes.youtube or site.redes.spotify or site.redes.x or site.redes.tiktok) %}<span>Muy pronto en redes.</span>{% endif %}
+{% if site.redes.instagram %}<a href="{{ site.redes.instagram }}" rel="noopener">Instagram</a>{% endif %}
+{% if site.redes.youtube %}<a href="{{ site.redes.youtube }}" rel="noopener">YouTube</a>{% endif %}
+{% if site.redes.spotify %}<a href="{{ site.redes.spotify }}" rel="noopener">Spotify</a>{% endif %}
+{% if site.redes.x %}<a href="{{ site.redes.x }}" rel="noopener">X</a>{% endif %}
+{% if site.redes.tiktok %}<a href="{{ site.redes.tiktok }}" rel="noopener">TikTok</a>{% endif %}
+</div>
+</div>
+<div class="contenedor pie__final">
+<span>© {{ anio }} {{ site.nombre }} · Región de Coquimbo, Chile</span>
+<span>{{ site.lema }}</span>
+</div>
+</footer>
+</body>
+</html>

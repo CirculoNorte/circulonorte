@@ -1,0 +1,178 @@
+---
+layout: layouts/base.njk
+permalink: /
+---
+{% from "partes/macros.njk" import cerros, portada, avatar, play, flecha, simbolo %}
+{% set destacado = (collections.territorio | donde("destacado", true) | first) or (collections.territorio | first) or (collections.opinion | first) %}
+
+<section class="hero">
+<div class="contenedor hero__texto">
+<div class="antetitulo">Opinión · Conversación · Análisis</div>
+<h1>{{ site.lema }}</h1>
+<div class="regla"></div>
+<p>{{ site.origen }}</p>
+<div class="hero__botones">
+<a href="/opinion/" class="boton boton--oscuro">Leer las columnas {{ flecha() }}</a>
+<a href="/en-circulo/" class="boton boton--borde">Escuchar En Círculo</a>
+</div>
+</div>
+<div class="hero__fondo">{{ cerros(1130, 200) }}</div>
+</section>
+
+{% if collections.norte | length %}
+<section class="franja" aria-labelledby="t-norte">
+<div class="contenedor franja__fila">
+<a class="franja__rotulo" href="/norte/">
+<strong id="t-norte"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4A45F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20 V4 M6 10 L12 4 L18 10"/></svg>NORTE</strong>
+<span>Actualidad regional</span>
+</a>
+<div class="franja__items">
+{% for n in collections.norte | primeros(4) %}
+<a class="franja__item" href="{{ n.url }}">
+<span class="franja__comuna">{{ n.data.comuna or "Región" }}</span>
+<span class="franja__titular">{{ n.data.title }}</span>
+</a>
+{% endfor %}
+</div>
+</div>
+</section>
+{% endif %}
+
+<section class="bloque">
+<div class="contenedor dos">
+{% if destacado %}
+{% set autorD = destacado.data.autor | autor(collections.autores) %}
+<article class="destacado">
+<a class="destacado__imagen" href="{{ destacado.url }}" tabindex="-1" aria-hidden="true">{{ portada(destacado, 560) }}</a>
+<div class="antetitulo">{{ "Territorio" if destacado.data.seccion == "territorio" else "Opinión" }}{% if destacado.data.genero %} · {{ destacado.data.genero }}{% endif %}</div>
+<h2><a href="{{ destacado.url }}">{{ destacado.data.title }}</a></h2>
+{% if destacado.data.bajada %}<p class="bajada">{{ destacado.data.bajada }}</p>{% endif %}
+<div class="firma">{% if autorD %}<strong>Por {{ autorD.data.title }}</strong><span aria-hidden="true">·</span>{% endif %}<span>{{ destacado.date | fecha }}</span></div>
+</article>
+{% else %}
+<p class="vacio">Aún no hay publicaciones.</p>
+{% endif %}
+
+<aside aria-labelledby="t-opinion">
+<div class="lista-opinion__cabeza">
+<h2 id="t-opinion">OPINIÓN</h2>
+<a href="/opinion/" class="enlace-linea">Todas las columnas</a>
+</div>
+{% for c in collections.opinion | primeros(4, destacado) %}
+{% set a = c.data.autor | autor(collections.autores) %}
+<article class="columna">
+{{ avatar(a) }}
+<div class="columna__texto">
+<span class="columna__autor">{{ a.data.title if a else "Círculo Norte" }}</span>
+<h3><a href="{{ c.url }}">{{ c.data.title }}</a></h3>
+</div>
+</article>
+{% else %}
+<p class="vacio" style="padding-top:20px">Pronto, las primeras columnas.</p>
+{% endfor %}
+</aside>
+</div>
+</section>
+
+{% if collections.angulo | length %}
+{% set v = collections.angulo | first %}
+<section class="bloque oscuro" aria-labelledby="t-angulo">
+<div class="contenedor">
+<div class="encabezado">
+<div><div class="antetitulo">Ángulo</div><h2 id="t-angulo">Editoriales y columnas audiovisuales</h2></div>
+<a href="/angulo/" class="enlace-linea">Ver todos los videos</a>
+</div>
+<div class="dos">
+<article class="video-principal">
+<div class="video-principal__marco">
+{{ portada(v, 900, "#F3DCD6") }}
+<a href="{{ v.url }}" class="boton-play" aria-label="Ver: {{ v.data.title }}">{{ play(30) }}</a>
+{% if v.data.duracion %}<span class="duracion">{{ v.data.duracion }}</span>{% endif %}
+</div>
+<div class="antetitulo">{{ v.data.tipo or "Editorial" }}</div>
+<h3><a href="{{ v.url }}">{{ v.data.title }}</a></h3>
+</article>
+<div>
+{% for m in collections.angulo | primeros(3, v) %}
+<article class="video-mini">
+<a class="video-mini__miniatura" href="{{ m.url }}" aria-hidden="true" tabindex="-1">{% if m.data.imagen %}<img src="{{ m.data.imagen }}" alt="" loading="lazy">{% endif %}<span class="icono">{{ play(26) }}</span></a>
+<div class="video-mini__texto">
+<span class="video-mini__tipo">{{ m.data.tipo or "Columna en video" }}{% if m.data.duracion %} · {{ m.data.duracion }}{% endif %}</span>
+<h3><a href="{{ m.url }}">{{ m.data.title }}</a></h3>
+</div>
+</article>
+{% endfor %}
+</div>
+</div>
+</div>
+</section>
+{% endif %}
+
+<section class="bloque bloque--cielo" aria-labelledby="t-circulo">
+<div class="contenedor dos" style="align-items:center">
+<div class="podcast">
+<div class="podcast__tapa" aria-hidden="true">{{ simbolo(120, "#FBF6EE", 4) }}<span>EN CÍRCULO</span></div>
+<div class="podcast__texto">
+<div class="antetitulo">En Círculo · Podcast</div>
+<h2 id="t-circulo">Conversaciones y entrevistas</h2>
+<p class="bajada">Política, sociedad y análisis. Más conversación y menos ruido.</p>
+<div class="plataformas">
+{% if site.podcast.spotify %}<a class="pildora" href="{{ site.podcast.spotify }}" rel="noopener">Spotify</a>{% endif %}
+{% if site.podcast.youtube %}<a class="pildora" href="{{ site.podcast.youtube }}" rel="noopener">YouTube</a>{% endif %}
+{% if site.podcast.apple %}<a class="pildora" href="{{ site.podcast.apple }}" rel="noopener">Apple Podcasts</a>{% endif %}
+<a class="pildora" href="/en-circulo/">Todos los episodios</a>
+</div>
+</div>
+</div>
+<ol class="episodios">
+{% for e in collections.encirculo | primeros(3) %}
+<li class="episodio">
+<span class="episodio__num">{{ e.data.numero if e.data.numero else loop.index }}</span>
+<div class="episodio__texto">
+<a href="{{ e.url }}">{{ e.data.title }}</a>
+<span class="episodio__meta">{% if e.data.invitados %}Con {{ e.data.invitados }}{% endif %}{% if e.data.invitados and e.data.duracion %} · {% endif %}{{ e.data.duracion }}</span>
+</div>
+<a class="boton-redondo" href="{{ e.url }}" aria-label="Escuchar: {{ e.data.title }}">{{ play() }}</a>
+</li>
+{% else %}
+<li class="vacio">El primer episodio viene en camino.</li>
+{% endfor %}
+</ol>
+</div>
+</section>
+
+{% set restoTerritorio = collections.territorio | primeros(3, destacado) %}
+{% if restoTerritorio | length %}
+<section class="bloque" aria-labelledby="t-territorio">
+<div class="contenedor">
+<div class="encabezado">
+<div><div class="antetitulo">Territorio</div><h2 id="t-territorio">Noticias y reportajes regionales</h2></div>
+<div class="filtros">
+<a class="pildora" href="/territorio/">Toda la región</a>
+<a class="pildora" href="/territorio/elqui/">Elqui</a>
+<a class="pildora" href="/territorio/limari/">Limarí</a>
+<a class="pildora" href="/territorio/choapa/">Choapa</a>
+</div>
+</div>
+<div class="tres">
+{% for t in restoTerritorio %}{% include "partes/tarjeta.njk" %}{% endfor %}
+</div>
+</div>
+</section>
+{% endif %}
+
+<section class="bloque bloque--arena porque">
+<div class="contenedor dos">
+<div class="porque__intro">
+{{ simbolo(96, "#173F2B", 4) }}
+<h2>¿Por qué Círculo Norte?</h2>
+<p class="bajada">Somos un espacio de opinión, conversación y análisis sobre política, sociedad, cultura y los desafíos de nuestra región y nuestro país.</p>
+<a href="/quienes-somos/" class="enlace-linea">Quiénes somos</a>
+</div>
+<ul>
+{% for p in porque %}<li>{{ p }}</li>{% endfor %}
+</ul>
+</div>
+</section>
+
+{% include "partes/suscripcion.njk" %}

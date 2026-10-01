@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+title: Página no encontrada
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+{% from "partes/macros.njk" import cerros %}
+<section class="hero">
+<div class="contenedor hero__texto">
+<div class="antetitulo">Error 404</div>
+<h1>Esta huella se la llevó el viento.</h1>
+<div class="regla"></div>
+<p>La página que buscas no existe o cambió de dirección.</p>
+<div class="hero__botones"><a class="boton boton--oscuro" href="/">Volver a la portada</a></div>
+</div>
+<div class="hero__fondo">{{ cerros(1130, 200) }}</div>
+</section>

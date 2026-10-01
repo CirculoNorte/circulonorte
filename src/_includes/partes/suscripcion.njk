@@ -1,0 +1,15 @@
+<section id="suscribete" class="bloque">
+<div class="contenedor">
+<div class="suscripcion">
+<div>
+<h2>Una mirada amplia, cada semana en tu correo</h2>
+<p>Columnas, conversaciones y lo que pasa en la región. Sin ruido.</p>
+</div>
+{% if site.newsletter %}
+<a href="{{ site.newsletter }}" class="boton boton--naranjo" rel="noopener">Suscribirme</a>
+{% else %}
+<a href="mailto:{{ site.correo }}?subject=Quiero%20recibir%20el%20bolet%C3%ADn" class="boton boton--naranjo">Escríbenos para suscribirte</a>
+{% endif %}
+</div>
+</div>
+</section>

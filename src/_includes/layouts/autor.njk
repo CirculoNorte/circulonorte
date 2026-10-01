@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+---
+{% from "partes/macros.njk" import avatar %}
+{% set id = page.fileSlug %}
+{% set suyas = collections.todo | donde("autor", id) %}
+<article class="articulo">
+<header class="articulo__cabeza" style="align-items:flex-start">
+{{ avatar(id | autor(collections.autores), "grande") }}
+<div class="antetitulo">Columnista</div>
+<h1>{{ title }}</h1>
+{% if cargo %}<p class="firma"><strong>{{ cargo }}</strong></p>{% endif %}
+{% if bio %}<p class="bajada">{{ bio }}</p>{% endif %}
+</header>
+<div class="cuerpo">{{ content | safe }}</div>
+<h2 style="margin-top:48px;font-size:22px;letter-spacing:.12em;color:var(--verde);padding-bottom:12px;border-bottom:2px solid var(--verde)">PUBLICACIONES</h2>
+{% for c in suyas %}
+<article class="columna">
+<div class="columna__texto">
+<span class="columna__autor">{{ c.date | fecha }}</span>
+<h3><a href="{{ c.url }}">{{ c.data.title }}</a></h3>
+</div>
+</article>
+{% else %}
+<p class="vacio" style="padding-top:20px">Todavía no hay publicaciones.</p>
+{% endfor %}
+</article>

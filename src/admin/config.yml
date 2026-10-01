@@ -1,0 +1,211 @@
+# ============================================================
+# Editor de Círculo Norte (Sveltia CMS)
+# Antes de usarlo, reemplaza las DOS líneas marcadas con ⚠️
+# (ver la guía LEEME.md, paso 5).
+# ============================================================
+
+backend:
+  name: github
+  repo: circulonorte/circulonorte          # ⚠️ organización/repositorio en GitHub
+  branch: main
+  base_url: https://sveltia-cms-auth.TU-SUBDOMINIO.workers.dev   # ⚠️ dirección de tu Worker en Cloudflare
+  commit_messages:
+    create: "Nuevo en {{collection}}: {{slug}}"
+    update: "Edición en {{collection}}: {{slug}}"
+    delete: "Borrado en {{collection}}: {{slug}}"
+    uploadMedia: "Sube {{path}}"
+    deleteMedia: "Borra {{path}}"
+
+site_url: https://circulonorte.cl
+display_url: https://circulonorte.cl
+logo_url: /assets/img/simbolo.svg
+
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+
+  # ---------- OPINIÓN ----------
+  - name: opinion
+    label: Opinión
+    label_singular: Columna
+    description: Columnas escritas.
+    folder: src/opinion
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: [date, title]
+    summary: "{{title}} · {{date | date('DD-MM-YYYY')}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Fecha de publicación, name: date, widget: datetime }
+      - label: Autor/a
+        name: autor
+        widget: relation
+        collection: autores
+        value_field: "{{slug}}"
+        search_fields: [title]
+        display_fields: [title]
+      - { label: Bajada, name: bajada, widget: text, required: false, hint: "Una o dos frases que resumen la columna." }
+      - { label: Imagen, name: imagen, widget: image, required: false }
+      - { label: Descripción de la imagen, name: imagen_alt, widget: string, required: false, hint: "Para personas que usan lectores de pantalla." }
+      - { label: Crédito de la imagen, name: imagen_credito, widget: string, required: false }
+      - { label: Borrador (no publicar aún), name: borrador, widget: boolean, default: false, required: false }
+      - { label: Texto, name: body, widget: markdown }
+
+  # ---------- ÁNGULO ----------
+  - name: angulo
+    label: Ángulo
+    label_singular: Video
+    description: Editoriales y columnas audiovisuales.
+    folder: src/angulo
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} · {{date | date('DD-MM-YYYY')}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Fecha de publicación, name: date, widget: datetime }
+      - { label: Tipo, name: tipo, widget: select, options: [Editorial, Columna en video, Entrevista, Registro], default: Editorial }
+      - { label: Enlace de YouTube, name: video, widget: string, required: false, hint: "Pega el enlace del video, por ejemplo https://youtu.be/..." }
+      - { label: Duración, name: duracion, widget: string, required: false, hint: "Por ejemplo 08:45" }
+      - label: Autor/a
+        name: autor
+        widget: relation
+        collection: autores
+        value_field: "{{slug}}"
+        search_fields: [title]
+        display_fields: [title]
+        required: false
+      - { label: Bajada, name: bajada, widget: text, required: false }
+      - { label: Miniatura, name: imagen, widget: image, required: false }
+      - { label: Borrador (no publicar aún), name: borrador, widget: boolean, default: false, required: false }
+      - { label: Texto complementario, name: body, widget: markdown, required: false }
+
+  # ---------- EN CÍRCULO ----------
+  - name: encirculo
+    label: En Círculo
+    label_singular: Episodio
+    description: Conversaciones y entrevistas.
+    folder: src/encirculo
+    create: true
+    slug: "{{slug}}"
+    summary: "{{numero}} · {{title}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Fecha de publicación, name: date, widget: datetime }
+      - { label: Número de episodio, name: numero, widget: number, value_type: int, required: false }
+      - { label: Invitados/as, name: invitados, widget: string, required: false }
+      - { label: Duración, name: duracion, widget: string, required: false }
+      - { label: Enlace del episodio (Spotify o YouTube), name: audio, widget: string, required: false }
+      - { label: Bajada, name: bajada, widget: text, required: false }
+      - { label: Borrador (no publicar aún), name: borrador, widget: boolean, default: false, required: false }
+      - { label: Notas del episodio, name: body, widget: markdown, required: false }
+
+  # ---------- TERRITORIO ----------
+  - name: territorio
+    label: Territorio
+    label_singular: Nota o reportaje
+    description: Noticias y reportajes regionales.
+    folder: src/territorio
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} · {{provincia}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Fecha de publicación, name: date, widget: datetime }
+      - { label: Provincia, name: provincia, widget: select, options: [Toda la región, Elqui, Limarí, Choapa], default: Toda la región }
+      - { label: Comuna, name: comuna, widget: string, required: false }
+      - { label: Género, name: genero, widget: select, options: [Noticia, Reportaje, Crónica, Entrevista], default: Reportaje }
+      - label: Autor/a
+        name: autor
+        widget: relation
+        collection: autores
+        value_field: "{{slug}}"
+        search_fields: [title]
+        display_fields: [title]
+        required: false
+      - { label: Destacar en la portada, name: destacado, widget: boolean, default: false, required: false }
+      - { label: Bajada, name: bajada, widget: text, required: false }
+      - { label: Imagen principal, name: imagen, widget: image, required: false }
+      - { label: Descripción de la imagen, name: imagen_alt, widget: string, required: false }
+      - { label: Crédito de la imagen, name: imagen_credito, widget: string, required: false }
+      - { label: Borrador (no publicar aún), name: borrador, widget: boolean, default: false, required: false }
+      - { label: Texto, name: body, widget: markdown }
+
+  # ---------- NORTE (actualidad breve) ----------
+  - name: norte
+    label: Norte
+    label_singular: Breve
+    description: Actualidad regional en pocas líneas. Aparece en la franja verde de la portada.
+    folder: src/norte
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{comuna}} · {{title}}"
+    fields:
+      - { label: Titular, name: title, widget: string }
+      - { label: Fecha, name: date, widget: datetime }
+      - { label: Comuna, name: comuna, widget: string, hint: "Por ejemplo La Serena, Ovalle, Illapel" }
+      - { label: Borrador (no publicar aún), name: borrador, widget: boolean, default: false, required: false }
+      - { label: Texto, name: body, widget: markdown, required: false }
+
+  # ---------- AUTORES ----------
+  - name: autores
+    label: Columnistas
+    label_singular: Columnista
+    folder: src/autores
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    fields:
+      - { label: Nombre, name: title, widget: string }
+      - { label: Cargo o descripción breve, name: cargo, widget: string, required: false, hint: "Por ejemplo: Psicólogo, vecino de Tierras Blancas" }
+      - { label: Biografía corta, name: bio, widget: text, required: false }
+      - { label: Foto, name: foto, widget: image, required: false }
+      - { label: Texto adicional, name: body, widget: markdown, required: false }
+
+  # ---------- PÁGINAS ----------
+  - name: paginas
+    label: Páginas
+    label_singular: Página
+    folder: src/paginas
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Bajada, name: bajada, widget: text, required: false }
+      - { label: Texto, name: body, widget: markdown }
+
+  # ---------- CONFIGURACIÓN ----------
+  - name: configuracion
+    label: Configuración
+    files:
+      - name: sitio
+        label: Datos del sitio y redes
+        file: src/_data/site.json
+        fields:
+          - { label: Nombre, name: nombre, widget: string }
+          - { label: Lema, name: lema, widget: string }
+          - { label: Descripción (para buscadores), name: descripcion, widget: text }
+          - { label: Frase de origen (portada), name: origen, widget: text }
+          - { label: Dirección del sitio, name: url, widget: string }
+          - { label: Correo de contacto, name: correo, widget: string }
+          - { label: Enlace del boletín (Substack u otro), name: newsletter, widget: string, required: false }
+          - label: Redes sociales
+            name: redes
+            widget: object
+            fields:
+              - { label: Instagram, name: instagram, widget: string, required: false }
+              - { label: YouTube, name: youtube, widget: string, required: false }
+              - { label: Spotify, name: spotify, widget: string, required: false }
+              - { label: X, name: x, widget: string, required: false }
+              - { label: TikTok, name: tiktok, widget: string, required: false }
+          - label: Podcast En Círculo
+            name: podcast
+            widget: object
+            fields:
+              - { label: Spotify, name: spotify, widget: string, required: false }
+              - { label: YouTube, name: youtube, widget: string, required: false }
+              - { label: Apple Podcasts, name: apple, widget: string, required: false }

@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: Ángulo
+pagination:
+  data: collections.angulo
+  size: 12
+  alias: items
+  generatePageOnEmptyData: true
+permalink: "/angulo/{% if pagination.pageNumber > 0 %}pagina/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  titulo: Ángulo
+---
+{% set descripcion = "Editoriales y columnas audiovisuales." %}{% set formato = "videos" %}
+{% include "partes/listado.njk" %}

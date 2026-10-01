@@ -1,0 +1,7 @@
+[
+  { "id": "opinion", "nombre": "Opinión", "descripcion": "Columnas escritas.", "url": "/opinion/" },
+  { "id": "angulo", "nombre": "Ángulo", "descripcion": "Editoriales y columnas audiovisuales.", "url": "/angulo/" },
+  { "id": "encirculo", "nombre": "En Círculo", "descripcion": "Conversaciones y entrevistas. Política, sociedad y análisis.", "url": "/en-circulo/" },
+  { "id": "territorio", "nombre": "Territorio", "descripcion": "Noticias y reportajes regionales.", "url": "/territorio/" },
+  { "id": "norte", "nombre": "Norte", "descripcion": "Actualidad regional.", "url": "/norte/" }
+]

@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+---
+{% from "partes/macros.njk" import avatar %}
+{% set a = autor | autor(collections.autores) %}
+{% set sec = seccion | seccionInfo(secciones) %}
+<article class="articulo">
+<header class="articulo__cabeza">
+<a class="antetitulo" href="{{ sec.url }}">{{ sec.nombre }}{% if genero %} · {{ genero }}{% endif %}{% if comuna %} · {{ comuna }}{% endif %}</a>
+<h1>{{ title }}</h1>
+{% if bajada %}<p class="bajada">{{ bajada }}</p>{% endif %}
+<div class="articulo__autor">
+{{ avatar(a) }}
+<div>
+{% if a %}<strong><a href="{{ a.url }}">{{ a.data.title }}</a></strong>{% else %}<strong>{{ site.nombre }}</strong>{% endif %}
+<span><time datetime="{{ page.date | fechaISO }}">{{ page.date | fecha }}</time> · {{ content | lectura }}</span>
+</div>
+</div>
+</header>
+{% if imagen %}
+<figure class="articulo__imagen">
+<img src="{{ imagen }}" alt="{{ imagen_alt or '' }}">
+{% if imagen_credito %}<figcaption>{{ imagen_credito }}</figcaption>{% endif %}
+</figure>
+{% endif %}
+<div class="cuerpo">
+{{ content | safe }}
+</div>
+{% if seccion == "opinion" %}
+<p class="vacio" style="margin-top:40px;font-size:15px">Las columnas de opinión son responsabilidad de sus autores y no representan necesariamente la línea editorial de {{ site.nombre }}.</p>
+{% endif %}
+{% if a and a.data.bio %}
+<aside class="bio">
+{{ avatar(a) }}
+<div><strong><a href="{{ a.url }}">{{ a.data.title }}</a></strong><p>{{ a.data.bio }}</p></div>
+</aside>
+{% endif %}
+{% include "partes/compartir.njk" %}
+</article>

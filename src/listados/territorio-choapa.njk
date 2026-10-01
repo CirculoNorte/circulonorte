@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+title: Territorio · Choapa
+permalink: /territorio/choapa/
+eleventyComputed:
+  titulo: "Territorio · Choapa"
+---
+{% set items = collections.territorio | donde("provincia", "Choapa") %}{% set descripcion = "Noticias y reportajes de la provincia de Choapa." %}{% set formato = "tarjetas" %}{% set filtros = true %}
+{% include "partes/listado.njk" %}

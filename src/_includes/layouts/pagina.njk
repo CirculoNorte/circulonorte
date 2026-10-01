@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+---
+<article class="articulo">
+<header class="articulo__cabeza">
+<div class="antetitulo">{{ site.nombre }}</div>
+<h1>{{ title }}</h1>
+{% if bajada %}<p class="bajada">{{ bajada }}</p>{% endif %}
+<div class="regla"></div>
+</header>
+<div class="cuerpo">
+{{ content | safe }}
+</div>
+</article>

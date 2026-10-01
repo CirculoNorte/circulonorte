@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+title: Territorio · Elqui
+permalink: /territorio/elqui/
+eleventyComputed:
+  titulo: "Territorio · Elqui"
+---
+{% set items = collections.territorio | donde("provincia", "Elqui") %}{% set descripcion = "Noticias y reportajes de la provincia de Elqui." %}{% set formato = "tarjetas" %}{% set filtros = true %}
+{% include "partes/listado.njk" %}

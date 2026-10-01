@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+title: Territorio · Limarí
+permalink: /territorio/limari/
+eleventyComputed:
+  titulo: "Territorio · Limarí"
+---
+{% set items = collections.territorio | donde("provincia", "Limarí") %}{% set descripcion = "Noticias y reportajes de la provincia de Limarí." %}{% set formato = "tarjetas" %}{% set filtros = true %}
+{% include "partes/listado.njk" %}

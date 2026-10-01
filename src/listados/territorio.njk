@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: Territorio
+pagination:
+  data: collections.territorio
+  size: 12
+  alias: items
+  generatePageOnEmptyData: true
+permalink: "/territorio/{% if pagination.pageNumber > 0 %}pagina/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  titulo: Territorio
+---
+{% set descripcion = "Noticias y reportajes regionales." %}{% set formato = "tarjetas" %}{% set filtros = true %}
+{% include "partes/listado.njk" %}

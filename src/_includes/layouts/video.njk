@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+---
+{% from "partes/macros.njk" import avatar %}
+{% set a = autor | autor(collections.autores) %}
+{% set embed = video | youtubeEmbed %}
+<article class="articulo">
+<header class="articulo__cabeza">
+<a class="antetitulo" href="/angulo/">Ángulo · {{ tipo or "Editorial" }}</a>
+<h1>{{ title }}</h1>
+{% if bajada %}<p class="bajada">{{ bajada }}</p>{% endif %}
+</header>
+{% if embed %}
+<div class="insertado insertado--video">
+<iframe src="{{ embed }}" title="{{ title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+{% elif video %}
+<p style="margin-top:24px"><a class="boton boton--oscuro" href="{{ video }}" rel="noopener">Ver el video</a></p>
+{% endif %}
+<div class="articulo__autor" style="margin-top:28px">
+{{ avatar(a) }}
+<div>
+{% if a %}<strong><a href="{{ a.url }}">{{ a.data.title }}</a></strong>{% else %}<strong>{{ site.nombre }}</strong>{% endif %}
+<span><time datetime="{{ page.date | fechaISO }}">{{ page.date | fecha }}</time>{% if duracion %} · {{ duracion }}{% endif %}</span>
+</div>
+</div>
+<div class="cuerpo">
+{{ content | safe }}
+</div>
+{% include "partes/compartir.njk" %}
+</article>

@@ -1,0 +1,7 @@
+{% from "partes/macros.njk" import portada %}
+<article class="tarjeta">
+<a class="tarjeta__imagen" href="{{ t.url }}" tabindex="-1" aria-hidden="true">{{ portada(t, 760) }}</a>
+<span class="antetitulo">{{ t.data.provincia or t.data.comuna or "Región" }}{% if t.data.genero %} · {{ t.data.genero }}{% endif %}</span>
+<h3><a href="{{ t.url }}">{{ t.data.title }}</a></h3>
+{% if t.data.bajada %}<p>{{ t.data.bajada }}</p>{% endif %}
+</article>

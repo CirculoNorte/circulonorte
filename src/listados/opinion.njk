@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: Opinión
+pagination:
+  data: collections.opinion
+  size: 18
+  alias: items
+  generatePageOnEmptyData: true
+permalink: "/opinion/{% if pagination.pageNumber > 0 %}pagina/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  titulo: Opinión
+---
+{% set descripcion = "Columnas escritas." %}{% set formato = "columnas" %}
+{% include "partes/listado.njk" %}

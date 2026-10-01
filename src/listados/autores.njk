@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: Columnistas
+pagination:
+  data: collections.autores
+  size: 60
+  alias: items
+  generatePageOnEmptyData: true
+permalink: "/autores/{% if pagination.pageNumber > 0 %}pagina/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  titulo: Columnistas
+---
+{% set descripcion = "Las voces que escriben y conversan en Círculo Norte." %}{% set formato = "autores" %}
+{% include "partes/listado.njk" %}

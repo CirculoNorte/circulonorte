@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: En Círculo
+pagination:
+  data: collections.encirculo
+  size: 20
+  alias: items
+  generatePageOnEmptyData: true
+permalink: "/en-circulo/{% if pagination.pageNumber > 0 %}pagina/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  titulo: En Círculo
+---
+{% set descripcion = "Conversaciones y entrevistas. Política, sociedad y análisis." %}{% set formato = "episodios" %}
+{% include "partes/listado.njk" %}

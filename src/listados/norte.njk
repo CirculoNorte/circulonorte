@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: Norte
+pagination:
+  data: collections.norte
+  size: 30
+  alias: items
+  generatePageOnEmptyData: true
+permalink: "/norte/{% if pagination.pageNumber > 0 %}pagina/{{ pagination.pageNumber + 1 }}/{% endif %}index.html"
+eleventyComputed:
+  titulo: Norte
+---
+{% set descripcion = "Actualidad regional." %}{% set formato = "breves" %}
+{% include "partes/listado.njk" %}

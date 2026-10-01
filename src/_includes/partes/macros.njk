@@ -1,0 +1,55 @@
+{# Piezas gráficas reutilizables de Círculo Norte #}
+
+{# Símbolo: arco abierto naranjo + N #}
+{% macro simbolo(tam=52, colorN="#173F2B", grosor=5) %}
+<svg class="simbolo" width="{{ tam }}" height="{{ tam }}" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M25.8 53.6 A24 24 0 1 1 53.6 34.2" fill="none" stroke="#E36F1E" stroke-width="{{ grosor }}"/><text x="38" y="61" font-family="Montserrat, sans-serif" font-weight="600" font-size="26" fill="{{ colorN }}">N</text></svg>
+{% endmacro %}
+
+{# Logotipo completo #}
+{% macro logo(claro=false) %}
+<span class="logo{% if claro %} logo--claro{% endif %}">
+{{ simbolo(52, "#FBF6EE" if claro else "#173F2B") }}
+<span class="logo__texto"><span class="logo__circulo">CÍRCULO</span><span class="logo__norte">NORTE</span></span>
+</span>
+{% endmacro %}
+
+{# Cerros del semiárido: capas de color y sol #}
+{% macro cerros(solX=1130, solY=200, cielo="#FBEFE0", banda=false) %}
+<svg class="cerros" viewBox="{{ '0 250 1440 430' if banda else '0 0 1440 680' }}" preserveAspectRatio="{{ 'none' if banda else 'xMidYMax slice' }}" aria-hidden="true" focusable="false">
+<rect width="1440" height="680" fill="{{ cielo }}"/>
+<circle cx="{{ solX }}" cy="{{ solY }}" r="118" fill="#F7D3A6" opacity="0.35"/>
+<circle cx="{{ solX }}" cy="{{ solY }}" r="80" fill="#F4B566"/>
+<path d="M0 450 C150 430 260 380 380 360 C470 345 540 300 610 290 C680 280 720 330 800 340 C900 352 980 300 1080 310 C1180 320 1260 360 1440 370 L1440 680 L0 680 Z" fill="#EAD5CC"/>
+<path d="M0 490 C120 460 200 410 330 422 C440 432 520 390 640 396 C760 402 820 360 930 365 C1040 370 1120 410 1230 400 C1320 392 1390 422 1440 418 L1440 680 L0 680 Z" fill="#E4C1A8"/>
+<path d="M0 520 C90 500 180 460 290 472 C400 484 460 450 560 430 C650 412 720 460 820 460 C900 460 960 422 1060 415 C1160 408 1230 460 1330 456 C1390 454 1420 460 1440 465 L1440 680 L0 680 Z" fill="#D7A57F"/>
+<path d="M0 570 C110 540 200 510 300 522 C390 532 440 560 520 552 C620 542 700 490 800 488 C880 486 940 532 1030 536 C1120 540 1180 490 1270 478 C1350 468 1410 490 1440 498 L1440 680 L0 680 Z" fill="#C4845A"/>
+<path d="M0 610 C90 592 160 580 250 590 C360 602 420 630 540 622 C660 614 720 580 830 584 C940 588 1010 620 1120 612 C1220 604 1300 570 1380 568 C1410 567 1430 570 1440 572 L1440 680 L0 680 Z" fill="#985839"/>
+<path d="M0 648 C120 630 240 638 360 650 C480 662 600 646 720 640 C860 633 980 654 1100 652 C1220 650 1330 630 1440 634 L1440 680 L0 680 Z" fill="#5A3222"/>
+</svg>
+{% endmacro %}
+
+{# Imagen de una entrada, o los cerros si no tiene #}
+{% macro portada(item, solX=900, cielo="#F6E3D3") %}
+{% if item.data.imagen %}
+<img src="{{ item.data.imagen }}" alt="{{ item.data.imagen_alt or '' }}" loading="lazy">
+{% else %}
+{{ cerros(solX, 210, cielo) }}
+{% endif %}
+{% endmacro %}
+
+{# Avatar de autor: foto o iniciales #}
+{% macro avatar(a, tam="") %}
+{% if a and a.data.foto %}
+<img class="avatar {{ tam }}" src="{{ a.data.foto }}" alt="" loading="lazy">
+{% else %}
+<span class="avatar {{ tam }}" aria-hidden="true">{{ (a.data.title if a else "Círculo Norte") | iniciales }}</span>
+{% endif %}
+{% endmacro %}
+
+{% macro play(tam=16) %}
+<svg width="{{ tam }}" height="{{ tam }}" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5 L19 12 L8 19 Z" fill="currentColor"/></svg>
+{% endmacro %}
+
+{% macro flecha() %}
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12 H19 M13 6 L19 12 L13 18"/></svg>
+{% endmacro %}
