@@ -1,0 +1,17 @@
+{
+  "name": "circulonorte",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web de Círculo Norte — Una mirada amplia desde el territorio.",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}
