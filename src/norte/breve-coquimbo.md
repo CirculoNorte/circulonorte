@@ -1,5 +1,5 @@
 ---
-title: Ana Tijoux encabezará Día de la Música Chilena — Coquimbo
+title: Ana Tijoux encabezará Día de la Música Chilena
 date: 2026-10-01T18:26:00
 comuna: Coquimbo
 borrador: false
