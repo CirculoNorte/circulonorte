@@ -7,7 +7,7 @@ genero: Entrevista
 autor: ''
 destacado: false
 bajada: 'En la Región de Coquimbo, frente a la inseguridad, la precariedad alimentaria y la sed, el primer eslabón casi nunca es el Estado ni el mercado: es el barrio organizado.'
-imagen: /assets/uploads/pasted-image-1790967356398-1.png
+imagen: /assets/uploads/pasted-image-1790968925824.png
 imagen_alt: ''
 imagen_credito: ''
 borrador: false
