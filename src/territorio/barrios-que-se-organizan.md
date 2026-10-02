@@ -53,10 +53,10 @@ En julio, dirigentes de las comunidades agrícolas de Elqui, Limarí y Choapa ll
 
 Leídas juntas, estas experiencias dicen al menos tres cosas.
 
-Primero, que la organización barrial no es un adorno de la política pública: es su condición de posibilidad. Las alarmas, las luminarias, los huertos y los proyectos de riego existen porque alguien postuló, alguien convocó, alguien se quedó después de la reunión a ordenar las sillas.
+Primero, que **la organización barrial no es un adorno de la política pública**: es su condición de posibilidad. Las alarmas, las luminarias, los huertos y los proyectos de riego existen porque alguien postuló, alguien convocó, alguien se quedó después de la reunión a ordenar las sillas.
 
-Segundo, que la organización también se desgasta. Cuando las alarmas no suenan y las cámaras prometidas no llegan, lo que se erosiona no es solo un proyecto: es la confianza en que organizarse sirve. Cada promesa incumplida le cuesta al Estado un dirigente.
+Segundo, que **la organización también se desgasta**. Cuando las alarmas no suenan y las cámaras prometidas no llegan, lo que se erosiona no es solo un proyecto: es la confianza en que organizarse sirve. Cada promesa incumplida le cuesta al Estado un dirigente.
 
-Tercero, que inseguridad, hambre y sed no son agendas separadas. Una plaza con luz, un huerto vecinal y una comunidad de aguas comparten la misma lógica: recuperar lo común. Allí donde el territorio se vuelve a habitar en colectivo, retroceden el miedo, la dependencia y la intemperie.
+Tercero, que **inseguridad, hambre y sed no son agendas separadas**. Una plaza con luz, un huerto vecinal y una comunidad de aguas comparten la misma lógica: recuperar lo común. Allí donde el territorio se vuelve a habitar en colectivo, retroceden el miedo, la dependencia y la intemperie.
 
-La política de todos los días no reemplaza a la otra, la de los grandes anuncios. Pero le recuerda, desde la sede social y el canal de regadío, para quién trabaja._o real._
+La política de todos los días no reemplaza a la otra, la de los grandes anuncios. Pero le recuerda, desde la sede social y el canal de regadío, para quién trabaja.
