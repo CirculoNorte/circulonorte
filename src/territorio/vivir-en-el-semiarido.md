@@ -7,7 +7,7 @@ genero: Reportaje
 autor: equipo-circulo-norte
 destacado: true
 bajada: 'Pero en el semiárido, que vuelva el agua no significa que el problema haya terminado: también obliga a preguntarnos cómo la distribuimos, cómo la cuidamos y qué región queremos construir.'
-imagen: /assets/uploads/Diseño sin título.png
+imagen: /assets/uploads/pasted-image-1790966677880.png
 imagen_alt: ''
 imagen_credito: ''
 borrador: false
