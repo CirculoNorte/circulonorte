@@ -1,4 +1,4 @@
-{% from "partes/macros.njk" import cerros, avatar, play %}
+{% from "partes/macros.njk" import cerros, avatar, play, portada %}
 <section class="cabeza-seccion">
 <div class="cabeza-seccion__fondo">{{ cerros(-500, 0, "#FBEFE0", true) }}</div>
 <div class="contenedor cabeza-seccion__texto">
@@ -35,7 +35,7 @@
 <div class="tres">
 {% for m in items %}
 <article class="tarjeta">
-<a class="tarjeta__imagen" href="{{ m.url }}" style="position:relative" aria-label="Ver: {{ m.data.title }}">{% if m.data.imagen %}<img src="{{ m.data.imagen }}" alt="" loading="lazy">{% else %}{{ cerros(900, 210, "#F3DCD6") }}{% endif %}<span class="boton-play" style="width:64px;height:64px;margin:-32px 0 0 -32px">{{ play(24) }}</span></a>
+<a class="tarjeta__imagen" href="{{ m.url }}" style="position:relative" aria-label="Ver: {{ m.data.title }}">{{ portada(m, 900, "#F3DCD6") }}<span class="boton-play" style="width:64px;height:64px;margin:-32px 0 0 -32px">{{ play(24) }}</span></a>
 <span class="antetitulo">{{ m.data.tipo or "Editorial" }}{% if m.data.duracion %} · {{ m.data.duracion }}{% endif %}</span>
 <h3><a href="{{ m.url }}">{{ m.data.title }}</a></h3>
 </article>

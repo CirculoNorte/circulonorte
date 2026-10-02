@@ -28,10 +28,13 @@
 </svg>
 {% endmacro %}
 
-{# Imagen de una entrada, o los cerros si no tiene #}
+{# Imagen de una entrada; si no tiene y es un video, la miniatura de YouTube; si no, los cerros #}
 {% macro portada(item, solX=900, cielo="#F6E3D3") %}
+{% set miniYT = item.data.video | youtubeMiniatura %}
 {% if item.data.imagen %}
 <img src="{{ item.data.imagen }}" alt="{{ item.data.imagen_alt or '' }}" loading="lazy">
+{% elif miniYT %}
+<img src="{{ miniYT }}" alt="" loading="lazy">
 {% else %}
 {{ cerros(solX, 210, cielo) }}
 {% endif %}

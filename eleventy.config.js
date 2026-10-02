@@ -82,6 +82,13 @@ export default function (eleventyConfig) {
     return m ? `https://www.youtube-nocookie.com/embed/${m[1]}` : "";
   });
 
+  // Miniatura oficial de un video de YouTube (para previsualizar)
+  eleventyConfig.addFilter("youtubeMiniatura", (url) => {
+    if (!url) return "";
+    const m = String(url).match(/(?:youtu\.be\/|v=|embed\/|shorts\/|live\/)([A-Za-z0-9_-]{11})/);
+    return m ? `https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg` : "";
+  });
+
   // Convierte un enlace de Spotify en su versión para insertar
   eleventyConfig.addFilter("spotifyEmbed", (url) => {
     if (!url) return "";
