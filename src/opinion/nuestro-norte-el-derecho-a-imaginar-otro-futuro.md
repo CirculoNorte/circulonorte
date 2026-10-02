@@ -1,7 +1,7 @@
 ---
 title: 'Nuestro Norte: el derecho a imaginar otro futuro'
 date: 2026-10-01T13:02:00
-autor: equipo-circulo-norte
+autor: jorge-antonio-campusano
 bajada: Por qué el derecho a manifestarnos —y la mirada desde el territorio— son indispensables para una democracia capaz de imaginar su futuro.
 imagen: /assets/uploads/marchals.png
 imagen_alt: ''
