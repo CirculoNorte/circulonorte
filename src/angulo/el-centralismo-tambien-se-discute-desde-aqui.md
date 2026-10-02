@@ -5,7 +5,7 @@ tipo: Editorial
 video: https://youtu.be/80dVOea3Jug
 duracion: ''
 autor: ''
-bajada: Editorial audiovisual de Círculo Norte.
+bajada: ''
 imagen: ''
 borrador: false
 ---
