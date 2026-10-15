@@ -6,7 +6,7 @@ comuna: ''
 genero: Reportaje
 autor: equipo-circulo-norte
 destacado: true
-bajada: Un cañón submarino entre la Regiónd de Atacama y Coquimbo concentra el kril que alimenta a ballenas que llegan al Archipielago de Humboldt. Justo ahí está el ECMPO Tifuka, una apuesta changa por la conservación hecha desde el territorio.
+bajada: Un cañón submarino entre la Regiónd de Atacama y Coquimbo concentra el kril que alimenta a ballenas que llegan al Archipiélago de Humboldt. Justo ahí está el ECMPO Tifuka, una apuesta changa por la conservación hecha desde el territorio.
 imagen: /assets/uploads/pasted-image-1792071906617.svg
 imagen_alt: ''
 imagen_credito: Cesar Villarroel
