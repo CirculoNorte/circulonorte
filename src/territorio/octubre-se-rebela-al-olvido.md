@@ -3,7 +3,7 @@ title: Octubre se rebela al olvido
 date: 2026-10-16T16:20:00
 provincia: Toda la región
 comuna: La Serena
-genero: Reportaje
+genero: Crónica
 autor: jorge-antonio-campusano
 destacado: true
 bajada: 'Recordar también es defender el derecho a cambiar Chile. A siete años del estallido: no tenemos por qué avergonzarnos de haber querido un Chile más justo.'
