@@ -3,7 +3,7 @@ layout: layouts/base.njk
 permalink: /
 ---
 {% from "partes/macros.njk" import cerros, portada, avatar, play, flecha, simbolo %}
-{% set destacado = (collections.territorio | donde("destacado", true) | first) or (collections.territorio | first) or (collections.opinion | first) %}
+{% set destacado = (collections.destacables | donde("destacado", true) | first) or (collections.territorio | first) or (collections.opinion | first) %}
 
 <section class="hero">
 <div class="contenedor hero__texto">
@@ -27,7 +27,7 @@ permalink: /
 <span>Actualidad regional</span>
 </a>
 <div class="franja__items">
-{% for n in collections.norte | primeros(4) %}
+{% for n in collections.norte | primeros(4, destacado) %}
 <a class="franja__item" href="{{ n.url }}">
 <span class="franja__comuna">{{ n.data.comuna or "Región" }}</span>
 <span class="franja__titular">{{ n.data.title }}</span>
@@ -44,7 +44,7 @@ permalink: /
 {% set autorD = destacado.data.autor | autor(collections.autores) %}
 <article class="destacado">
 <a class="destacado__imagen" href="{{ destacado.url }}" tabindex="-1" aria-hidden="true">{{ portada(destacado, 560) }}</a>
-<div class="antetitulo">{{ "Territorio" if destacado.data.seccion == "territorio" else "Opinión" }}{% if destacado.data.genero %} · {{ destacado.data.genero }}{% endif %}</div>
+{% set secD = destacado.data.seccion | seccionInfo(secciones) %}<div class="antetitulo">{{ secD.nombre }}{% if destacado.data.genero %} · {{ destacado.data.genero }}{% elif destacado.data.tipo %} · {{ destacado.data.tipo }}{% endif %}</div>
 <h2><a href="{{ destacado.url }}">{{ destacado.data.title }}</a></h2>
 {% if destacado.data.bajada %}<p class="bajada">{{ destacado.data.bajada }}</p>{% endif %}
 <div class="firma">{% if autorD %}<strong>Por {{ autorD.data.title }}</strong><span aria-hidden="true">·</span>{% endif %}<span>{{ destacado.date | fecha }}</span></div>
@@ -74,8 +74,8 @@ permalink: /
 </div>
 </section>
 
-{% if collections.angulo | length %}
-{% set v = collections.angulo | first %}
+{% if collections.angulo | primeros(1, destacado) | length %}
+{% set v = collections.angulo | primeros(1, destacado) | first %}
 <section class="bloque oscuro" aria-labelledby="t-angulo">
 <div class="contenedor">
 <div class="encabezado">

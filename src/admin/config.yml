@@ -53,6 +53,7 @@ collections:
       - { label: Imagen, name: imagen, widget: image, required: false }
       - { label: Descripción de la imagen, name: imagen_alt, widget: string, required: false, hint: "Para personas que usan lectores de pantalla." }
       - { label: Crédito de la imagen, name: imagen_credito, widget: string, required: false }
+      - { label: Destacar en la portada, name: destacado, widget: boolean, default: false, required: false, hint: "Aparece en grande en la portada. Si hay varios marcados, se muestra el más reciente." }
       - { label: Borrador (no publicar aún), name: borrador, widget: boolean, default: false, required: false }
       - { label: Texto, name: body, widget: markdown }
 
@@ -81,6 +82,7 @@ collections:
         required: false
       - { label: Bajada, name: bajada, widget: text, required: false }
       - { label: Miniatura, name: imagen, widget: image, required: false }
+      - { label: Destacar en la portada, name: destacado, widget: boolean, default: false, required: false, hint: "Aparece en grande en la portada. Si hay varios marcados, se muestra el más reciente." }
       - { label: Borrador (no publicar aún), name: borrador, widget: boolean, default: false, required: false }
       - { label: Texto complementario, name: body, widget: markdown, required: false }
 
@@ -101,6 +103,7 @@ collections:
       - { label: Duración, name: duracion, widget: string, required: false }
       - { label: Enlace del episodio (Spotify o YouTube), name: audio, widget: string, required: false }
       - { label: Bajada, name: bajada, widget: text, required: false }
+      - { label: Destacar en la portada, name: destacado, widget: boolean, default: false, required: false, hint: "Aparece en grande en la portada. Si hay varios marcados, se muestra el más reciente." }
       - { label: Borrador (no publicar aún), name: borrador, widget: boolean, default: false, required: false }
       - { label: Notas del episodio, name: body, widget: markdown, required: false }
 
@@ -127,7 +130,7 @@ collections:
         search_fields: [title]
         display_fields: [title]
         required: false
-      - { label: Destacar en la portada, name: destacado, widget: boolean, default: false, required: false }
+      - { label: Destacar en la portada, name: destacado, widget: boolean, default: false, required: false, hint: "Aparece en grande en la portada. Si hay varios marcados, se muestra el más reciente." }
       - { label: Bajada, name: bajada, widget: text, required: false }
       - { label: Imagen principal, name: imagen, widget: image, required: false }
       - { label: Descripción de la imagen, name: imagen_alt, widget: string, required: false }
@@ -148,6 +151,7 @@ collections:
       - { label: Titular, name: title, widget: string }
       - { label: Fecha, name: date, widget: datetime }
       - { label: Comuna, name: comuna, widget: string, hint: "Por ejemplo La Serena, Ovalle, Illapel" }
+      - { label: Destacar en la portada, name: destacado, widget: boolean, default: false, required: false, hint: "Aparece en grande en la portada. Si hay varios marcados, se muestra el más reciente." }
       - { label: Borrador (no publicar aún), name: borrador, widget: boolean, default: false, required: false }
       - { label: Texto, name: body, widget: markdown, required: false }
 

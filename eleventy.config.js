@@ -27,6 +27,13 @@ export default function (eleventyConfig) {
   }
 
   // Todo lo publicado, para el feed RSS
+  // Todo lo que puede ir destacado en la portada (cualquier sección)
+  eleventyConfig.addCollection("destacables", (api) =>
+    publicados(
+      api.getFilteredByGlob(["src/opinion/*.md", "src/angulo/*.md", "src/encirculo/*.md", "src/territorio/*.md", "src/norte/*.md"])
+    ).sort(porFecha)
+  );
+
   eleventyConfig.addCollection("todo", (api) =>
     publicados(
       api.getFilteredByGlob(["src/opinion/*.md", "src/angulo/*.md", "src/encirculo/*.md", "src/territorio/*.md"])
