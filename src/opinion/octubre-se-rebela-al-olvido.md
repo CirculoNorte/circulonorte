@@ -1,5 +1,5 @@
 ---
-title: 'Octubre se rebela al olvido:'
+title: Octubre se rebela al olvido
 date: 2026-10-16T16:12:00
 autor: jorge-antonio-campusano
 bajada: Recordar también es defender el derecho a cambiar Chile.
