@@ -1,5 +1,5 @@
 ---
-title: ¿MALA MEMORIA O NORMALIDAD ARTIFICIAL?
+title: ¿Mala Memoria o Normalidad Artificial?
 date: 2026-10-18T13:15:00
 autor: matias-riffo-ahumada
 bajada: 'Chile parece haber vuelto a la normalidad: las instituciones funcionan, hubo elecciones y la agenda está en las urgencias de hoy. Pero las causas del estallido siguen ahí, en la cuenta que no alcanza, en la deuda y en la incertidumbre de quien enfrenta solo problemas que son de todos.'
