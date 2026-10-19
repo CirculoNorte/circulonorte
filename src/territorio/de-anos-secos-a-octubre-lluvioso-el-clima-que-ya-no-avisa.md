@@ -5,7 +5,7 @@ provincia: Toda la región
 comuna: ''
 genero: Reportaje
 autor: ''
-destacado: false
+destacado: true
 bajada: La lluvia de esta semana en la Región de Coquimbo es una buena noticia y, a la vez, una advertencia. Un territorio que vivió más de una década de sequía hoy recibe frentes en épocas poco habituales. Para la agricultura, la minería y la pesca, el desafío ya no es solo la escasez de agua. También es la incertidumbre.
 imagen: /assets/uploads/agua.png
 imagen_alt: ''
