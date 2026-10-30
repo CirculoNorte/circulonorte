@@ -110,6 +110,19 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("url_absoluta", (ruta, base) => new URL(ruta, base).href);
 
+  // Si en el cuerpo de una nota hay un enlace de YouTube solo en su propia línea,
+  // se reemplaza por el video incrustado.
+  const YT = /^(?:https?:\/\/)?(?:www\.|m\.)?(?:youtube\.com\/(?:watch\?(?:[^"\s<]*&(?:amp;)?)?v=|shorts\/|live\/|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})[^"\s<]*$/;
+  const insertarVideo = (id) =>
+    `<div class="insertado insertado--video insertado--cuerpo"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="Video de YouTube" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+  eleventyConfig.addTransform("videos-en-el-cuerpo", function (contenido) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return contenido;
+    return contenido.replace(/<p>\s*(?:<a [^>]*href="([^"]+)"[^>]*>[^<]*<\/a>|([^<\s]+))\s*<\/p>/g, (todo, href, texto) => {
+      const m = String(href || texto).trim().match(YT);
+      return m ? insertarVideo(m[1]) : todo;
+    });
+  });
+
   return {
     dir: {
       input: "src",
