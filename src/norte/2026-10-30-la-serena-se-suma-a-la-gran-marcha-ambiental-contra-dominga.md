@@ -2,7 +2,7 @@
 title: La Serena se suma a la Gran Marcha Ambiental contra Dominga
 date: 2026-10-30T09:43:00
 comuna: La Serena
-destacado: true
+destacado: false
 borrador: false
 ---
 
