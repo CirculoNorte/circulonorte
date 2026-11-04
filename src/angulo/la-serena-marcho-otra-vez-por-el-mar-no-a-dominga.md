@@ -1,7 +1,7 @@
 ---
 title: 'La Serena marchó otra vez por el mar: No a Dominga'
 date: 2026-11-04T12:36:00
-tipo: Editorial
+tipo: Registro
 video: https://youtube.com/shorts/Aj_ZOiNxmto?feature=share
 duracion: ''
 autor: equipo-circulo-norte
