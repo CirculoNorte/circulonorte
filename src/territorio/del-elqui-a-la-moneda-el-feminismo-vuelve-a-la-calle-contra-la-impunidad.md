@@ -23,7 +23,7 @@ En la capital regional, diversas organizaciones feministas respondieron a la con
 
 La presencia serenense no es un dato menor. Confirma que la indignación por las rebajas de penas no es un asunto que se resuelva en los pasillos de Santiago, sino una herida que atraviesa los territorios y que en la Región de Coquimbo encuentra organizaciones dispuestas a sostener la demanda en la calle.
 
-Camila Sabando, coordinadora del Frente Feminista del Frente Amplio, valoró la jornada: "Lo que hicimos ayer fue una expresión colectiva de memoria, resistencia y compromiso feminista". Y fue enfática en el fondo de la demanda: "No vamos a normalizar decisiones que ponen en cuestión los avances conquistados por las mujeres ni permitir que se instale la impunidad frente a delitos tan graves como las violaciones contra niños y niñas".
+Camila Sabando, coordinadora del Frente Feminista del Frente Amplioa en la Región de Coquimbo, valoró la jornada: "Lo que hicimos ayer fue una expresión colectiva de memoria, resistencia y compromiso feminista". Y fue enfática en el fondo de la demanda: "No vamos a normalizar decisiones que ponen en cuestión los avances conquistados por las mujeres ni permitir que se instale la impunidad frente a delitos tan graves como las violaciones contra niños y niñas".
 
 "Los derechos humanos de las mujeres, niñas y niños no son negociables. Seguiremos organizadas, movilizadas y vigilantes para defender cada conquista y exigir justicia", remató.
 
