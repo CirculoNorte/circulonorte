@@ -57,6 +57,10 @@ Esta región ya conoció esa discusión. En 2022, los consejeros, de la UDI al P
 
 Juliá marcó 9,4% en el mismo mes de 2025, y la dureza de entonces no se ha vuelto a escuchar. Varias voces piden revisar la gestión del GORE, pero el coro suena bastante más bajo. 
 
+La otra vara se escucha en la radio. Roberto Dueñas, ex mánager de la farándula nacional y conductor de Mi Radio, es la voz más influyente de las mañanas regionales. Su cercanía con Juliá es pública: el hoy gobernador trabajó en ese medio, fue invitado frecuente de sus programas y en 2017 le agradeció en redes "todo su apoyo para esta campaña".
+
+Esa radio fue implacable con Krist Naranjo, con el gobierno de Boric y ahora con los hermanos Manouchehri. Criticar al poder es parte del oficio. La pregunta es si el 42,4% de un amigo de la casa recibirá en esas mañanas el mismo rigor. Porque fiscalizar no puede depender de quién gobierna, ni en el Consejo Regional ni frente al micrófono.
+
 ### Lo que no se ve en la planilla
 
 Un porcentaje no se queda sin trabajo. Las personas sí. Limarí perdió más de 4.600 empleos en un año, y faltan escuelas, jardines infantiles, centros de salud, parques, plazas, viviendas y obras de riego. 
