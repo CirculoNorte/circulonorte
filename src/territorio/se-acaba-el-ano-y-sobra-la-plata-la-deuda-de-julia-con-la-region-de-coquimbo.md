@@ -59,7 +59,7 @@ Juliá marcó 9,4% en el mismo mes de 2025, y la dureza de entonces no se ha vue
 
 ### Lo que no se ve en la planilla
 
-Un porcentaje no se queda sin trabajo. Las personas sí. Limarí perdió más de 4.600 empleos en un año, y faltan escuelas, jardines infantiles, centros de salud, parques, plazas, viviendas y obras de riego. Como dijo Ricardo Guerrero, de CIDERE, "no hay ningún peso que sobre".
+Un porcentaje no se queda sin trabajo. Las personas sí. Limarí perdió más de 4.600 empleos en un año, y faltan escuelas, jardines infantiles, centros de salud, parques, plazas, viviendas y obras de riego. 
 
 Un gobernador puede reclamar contra el muro de Santiago. Lo que no puede es usarlo para tapar lo que pasa en su propia casa. Cada peso que no se invierte es una oportunidad perdida para mejorar la calidad de vida.
 
