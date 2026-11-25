@@ -3,7 +3,7 @@ title: 'No somos una amenaza: no a la democracia del odio'
 date: 2026-11-25T16:19:00
 autor: lilith-ignacia-manriquez
 bajada: '"No pretendo pedir comprensión ni autorización para existir. Mucho menos voy a aceptar que mi identidad sea sometida a votación cada vez que a algún sector político le resulte conveniente instalar una nueva controversia."'
-imagen: /assets/uploads/pasted-image-1795635086246.png
+imagen: /assets/uploads/pasted-image-1795637085888.png
 imagen_alt: ''
 imagen_credito: ''
 destacado: true
